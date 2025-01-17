@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        name = prompt("이름을 입력하세요", "이름 입력")
+        document.write("당신의 이름은 ♥ ",name, "<br>")
+        console.log(name)
+        kuk = prompt("국어 점수를 입력하세요.", "0")
+        document.write("당신의 국어점수는 ♥ ",kuk, "<br>")
+        mat = prompt("수학 점수를 입력하세요.", "0")
+        document.write("당신의 수학점수는 ♥ ",mat, "<br>")
+        eng = prompt("영어 점수를 입력하세요.", "0")
+        document.write("당신의 영어점수는 ♥ ",eng, "<br>")
+        sum = Number(kuk) + Number(mat) + eng*1
+        document.write("총점 : ",sum, "<br>")
+        avg = sum /3
+        document.write("평균 : ", avg, "<br>")
+        final = avg > 90 ? document.write("합격") : document.write("불합격")
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .img12 {
+        width: 150px;
+        height: 150px;
+    }
+</style>
+<body>
+    <button type="button" onclick="game(1)"><img src="1.png" alt="가위" class="img12"></button>
+    <button type="button" onclick="game(2)"><img src="2.png" alt="바위" class="img12"></button>
+    <button type="button" onclick="game(3)"><img src="3.png" alt="보" class="img12"></button>
+
+    <script>
+        com = Math.floor((Math.random() * 3)) + 1
+        console.log(com)
+        function game(saram) {
+            if(saram == 1) {
+                document.write("사람은 가위 ~ ♡<br>")
+                if(com ==1) {
+                    document.write("나:가위 컴:가위 비겼습니다.")
+                }
+                else if(com == 2) {
+                    document.write("나:가위 컴:바위 컴퓨터가 이겼습니다.<br>")
+                    document.write("<img src=comwin.png width=500 height=500>")
+                }
+                else {
+                    document.write("나:가위 컴:보 내가 이겼습니당 ♥<br>")
+                    document.write("<img src=win.png width=500 height=500>")
+                }
+            } 
+            else if(saram == 2) {
+                document.write("사람은 바위 ~ ♡<br>")
+                if(com ==1) {
+                    document.write("나:바위 컴:가위 내가 이겼습니당 ♥<br>")
+                    document.write("<img src=win.png width=500 height=500>")
+                }
+                else if(com == 2) {
+                    document.write("나:바위 컴:바위 비겼습니다.")
+                }
+                else {
+                    document.write("나:바위 컴:보 컴퓨터가 이겼습니다.<br>")
+                    document.write("<img src=comwin.png width=500 height=500>")
+                }
+            } 
+            else {
+                document.write("사람은 보 ~ ♡<br>")
+                if(com ==1) {
+                    document.write("나:보 컴:가위 컴터가 이겼습니다<br>")
+                    document.write("<img src=comwin.png width=500 height=500>")
+                }
+                else if(com == 2) {
+                    document.write("나:보 컴:바위 내가 이겼습니당 ♥<br>")
+                    document.write("<img src=win.png width=500 height=500>")
+                }
+                else {
+                    document.write("나:보 컴:보 비겼습니다.")
+                }
+            }
+        }
+    </script>
+</body>
+</html>
