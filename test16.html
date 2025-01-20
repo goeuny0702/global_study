@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="test16.css">
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <td colspan="4"><input type="text" id="input1"></td>
+        </tr>
+        <tr>
+            <td colspan="4"><input type="text" id="input2"></td>
+        </tr>
+        <tr>
+            <td><button onclick="handle('+')" class="btn1">+</button></td>
+            <td><button onclick="handle('-')" class="btn1">-</button></td>
+            <td><button onclick="handle('*')" class="btn1">*</button></td>
+            <td><button onclick="handle('/')" class="btn1">/</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="handle('7')" class="btn2">7</button></td>
+            <td><button onclick="handle('8')" class="btn2">8</button></td>
+            <td><button onclick="handle('9')" class="btn2">9</button></td>
+            <td><button onclick="del()" class="del">del</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="handle('4')" class="btn3">4</button></td>
+            <td><button onclick="handle('5')" class="btn3">5</button></td>
+            <td><button onclick="handle('6')" class="btn3">6</button></td>
+            <td rowspan="2"><button onclick="run()" class="run">=</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="handle('1')" class="btn4">1</button></td>
+            <td><button onclick="handle('2')" class="btn4">2</button></td>
+            <td><button onclick="handle('3')" class="btn4">3</button></td>
+            
+        </tr>
+    </table>
+    <script>
+        ar=[]
+
+        function run(){
+            input2.value = eval(input1.value)
+            // input2.value = input1.value
+            // input1.value = ""
+            ar=[]
+        }
+        function handle(a){
+            ar.push(a)
+            input1.value = ar.join('')
+        }
+        function del() {
+            ar.pop()
+            input1.value = ar.join('');
+        }
+        
+    </script>
+</body>
+</html>

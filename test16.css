@@ -1,0 +1,109 @@
+body {
+    /* background:#21303f; */
+    justify-items: center;
+
+}
+
+table {
+    background: white; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6); 
+    border-radius: 20px; 
+    text-align: center;
+    width: 320px;
+    height: 350px;
+    padding: 15px;
+    border-spacing: 10px; 
+}
+
+td {
+    border: none;
+}
+
+input {
+    border: inset;
+    font-weight: bold;
+    font-family: emoji;
+    border-radius: 5px;
+    background-color: transparent;
+    height: 25px;
+    width: 300px;
+    color: black;
+}
+
+button {
+    width: 75px;
+}
+
+.btn1 {
+    font-size: 20px;
+    font-weight: bold;
+    background-color: transparent;
+    color: #d14d57;
+    padding: 10px;
+    border: 2px solid #d14d57;
+    border-radius: 50px;
+}
+
+
+.btn2 {
+    font-size: 20px;
+    font-weight: bold;
+    background-color: transparent;
+    color:#22A7F0;
+    padding: 10px;
+    border:2px solid #22A7F0;
+    border-radius:50px;
+}
+
+
+.btn3 {
+    font-size: 20px;
+    font-weight: bold;
+    background-color: transparent;
+    color:#03C9A9;
+    padding:10px;
+    border:2px solid #03C9A9;
+    border-radius:50px;
+}
+
+
+.btn4 {
+    font-size: 20px;
+    font-weight: bold;
+    background-color: transparent;
+    color:#D2527F;
+    padding:10px;
+    border:2px solid #D2527F;
+    border-radius:50px;
+}
+
+
+.del {
+    font-weight: bold;
+    background-color: transparent;
+    color:#F2784B;
+    padding:13px;
+    border:2px solid #F2784B;
+    border-radius:50px;
+}
+
+.run {
+    height: 80px;
+    font-weight: bold;
+    background-color: transparent;
+    color:#F2784B;
+    padding:13px;
+    border:2px solid #F2784B;
+    border-radius:30px;
+}
+
+button:hover {
+    color: white;
+    border: 2px solid hotpink;
+    background-color: hotpink;
+}
+
+button:active {
+    transform: scale(0.95); 
+    box-shadow: inset 0 2px 4px #d14d57;
+}

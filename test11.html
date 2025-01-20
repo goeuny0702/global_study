@@ -6,7 +6,29 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>깃허브 테스트 페이지</h1>
-    
+    <input type="input" id="input">
+    <button id="button">계산</button>
+    <button id="exit">종료</button>
+    <br>
+    <div id="logs" style="background-color: pink; width: 300px; height: 300px;">이곳에 저장 됩니다 ♡<br></div>
+    <script>
+        $logs = document.querySelector('#logs')
+        document.getElementById("button").addEventListener("click",run)
+        document.getElementById("exit").addEventListener("click",end)
+        function run() {
+            event.preventDefault() // 기다리는 동작
+            a = input.value
+            k = eval(input.value)
+            $logs.append(`${a} = ${k}`,document.createElement(`br`))
+            input.value = "계산 할 숫자를 입력하세용 ♥"
+        }
+        function end() {
+            exit = confirm("정말 종료하시겠습니까? T__T")
+            console.log(exit)
+            if(exit == true) {
+                window.close()
+            }
+        }
+    </script>
 </body>
 </html>

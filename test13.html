@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        text = "Hello ggoni good luck to you ~ ♥"
+        document.write(text, "<br><br>")
+        document.write("charAt(문자 불러오기) : " + text.charAt(7), "<br><br>")
+        document.write("slice(문자 잘라내기) : " + text.slice(2,5), "<br><br>")
+        //slice ~부터 ~까지
+        document.write("indexOf(글자위치반환) : "+ text.indexOf("you"), "<br><br>")
+        document.write("indexOf(글자위치반환) : "+ text.indexOf("you",10), "<br><br>")
+        document.write("indexOf(글자위치반환) : "+ text.indexOf("x"), "<br><br>")
+        document.write("match(찾아서출력) : ", text.match("ggoni"), "<br><br>") // 있는 글자 매치
+        document.write("match(찾아서출력) : ", text.match("mimi"), "<br><br>") // 글자가 없을때 null 출력
+        document.write("replace(치환) : " + text.replace("ggoni","goeun"), "<br><br>") //찾아서 바꾸기
+
+        //split 문자열 배열로
+        str = text.split(" ") //공백을 기준으로 나눈다
+        console.log(str)
+        document.write("split후 [0] : ", str[0], "<br><br>")
+        document.write("split후 [4] : ", str[4], "<br><br>")
+    </script>
+    
+</body>
+</html>
