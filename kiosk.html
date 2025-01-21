@@ -7,108 +7,281 @@
     <link rel="stylesheet" href="kiosk.css">
 </head>
 <body>
-    <table>
-        <tr>
-            <td colspan="4"><h1>MENU</h1></td>
-        </tr>
-        <tr align="center">
-            <td><img src="aaice.png" class="menuimg" id="aaimg"></td>
-            <td align="left" class="option">
-                <input type="checkbox" id="aa_shot" onclick="aa_update('aa_shot')">샷추가<br>
-                <input type="checkbox" id="aa_decaf" onclick="aa_update('aa_decaf')">디카페인<br>
-                <input type="checkbox" id="aa_tumble" onclick="aa_update('aa_tumble')">텀블러<br>
-                <input type="checkbox" id="aa_syrup" onclick="aa_update('aa_syrup')">시럽<br>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2" class="menuName"><input type="text" value="아메리카노(ICE)" id="aamenu"></td>
-        </tr>
-        <tr>
-            <td colspan="2" class="menuPrice"><input type="text" value="5300" id="aaprice">won</td>
-        </tr>
-        <tr>
-            <td colspan="2"><img src="aaice_ex.png" class="menuex" id="aaex" value="ice"></td>
-        </tr>
-        <tr>
-            <td colspan="2"><input type="radio" name="aa_type" checked="checked" value="ice" onclick="aaswimg('ice')">ICE
-                <input type="radio" name="aa_type" value="hot" onclick="aaswimg('hot')">HOT</td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <input type="radio" name="aa_size" checked="checked" value="Tall" onclick="aa_size('aa_tall')">Tall
-                <input type="radio" name="aa_size" value="Grande" onclick="aa_size('aa_grande')">Grande
-                <input type="radio" name="aa_size" value="Venti" onclick="aa_size('aa_venti')">Venti
-            </td> 
-        </tr>       
-
-        <script>
-            let previousSize = null
-            function aa_size(aa_sz) {
-                sz = aa_sz
-                baseCash = Number(document.getElementById("aaprice").value)
-                addPrice = 0;
-
-                if (previousSize === 'aa_grande') {
-                    baseCash -= 500;
-                } else if (previousSize === 'aa_venti') {
-                    baseCash -= 1000;
+    <div class="header">
+        <h1>STARBUCKS</h1>
+        <img src="starbucks_logo.png" alt="logo">
+    </div>
+    <div class="menucontainer">
+        <table class="menu1">
+            <tr>
+                <td colspan="4" class="title"><h1>MENU</h1></td>
+            </tr>
+            <tr align="center">
+                <td class="aaimg"><img src="aaice.png" class="menuimg" id="aaimg"></td>
+                <td align="left" class="option">
+                    <input type="checkbox" id="aa_shot" onclick="aa_update('aa_shot')">샷추가<br>
+                    <input type="checkbox" id="aa_decaf" onclick="aa_update('aa_decaf')">디카페인<br>
+                    <input type="checkbox" id="aa_tumble" onclick="aa_update('aa_tumble')">텀블러<br>
+                    <input type="checkbox" id="aa_syrup" onclick="aa_update('aa_syrup')">시럽<br>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="menuName"><input type="text" value="아메리카노(ICE)" id="aamenu"></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="menuPrice"><input type="text" value="5300" id="aaprice">won</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="ex"><img src="aaice_ex.png" class="menuex" id="aaex" value="ice"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="radio" name="aa_type" checked="checked" value="ice" onclick="aaswimg('ice')">ICE
+                    <input type="radio" name="aa_type" value="hot" onclick="aaswimg('hot')">HOT</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="radio" name="aa_size" checked="checked" value="Tall" onclick="aa_size('aa_tall')">Tall
+                    <input type="radio" name="aa_size" value="Grande" onclick="aa_size('aa_grande')">Grande
+                    <input type="radio" name="aa_size" value="Venti" onclick="aa_size('aa_venti')">Venti
+                </td> 
+            </tr>       
+    
+            <script>
+                let previousSize = null
+                function aa_size(aa_sz) {
+                    sz = aa_sz
+                    baseCash = Number(document.getElementById("aaprice").value)
+                    addPrice = 0;
+    
+                    if (previousSize === 'aa_grande') {
+                        baseCash -= 500;
+                    } else if (previousSize === 'aa_venti') {
+                        baseCash -= 1000;
+                    }
+                    if (aa_sz === 'aa_grande') {
+                        addPrice = 500;
+                    } else if (aa_sz === 'aa_venti') {
+                        addPrice = 1000;
+                    }
+    
+                    document.getElementById("aaprice").value = baseCash + addPrice
+                    previousSize = aa_sz
                 }
-                if (aa_sz === 'aa_grande') {
-                    addPrice = 500;
-                } else if (aa_sz === 'aa_venti') {
-                    addPrice = 1000;
+    
+                function aa_update(aa_chk) {
+                    chk = aa_chk
+                    baseCash = Number(document.getElementById("aaprice").value)
+                    addPrice = 0
+    
+                    if(chk == 'aa_shot') {
+                        if(document.getElementById("aa_shot").checked) addPrice += 500
+                        else if(!document.getElementById("aa_shot").checked) addPrice -= 500
+                    }
+                    else if(chk == 'aa_decaf') {
+                        if(document.getElementById("aa_decaf").checked) addPrice += 1000
+                        else if(!document.getElementById("aa_decaf").checked) addPrice -= 1000
+                    }
+                    else if(chk == 'aa_tumble') {
+                        if(document.getElementById("aa_tumble").checked) addPrice -= 300
+                        else if(!document.getElementById("aa_tumble").checked) addPrice += 300
+                    }
+                    else if(chk == 'aa_syrup') {
+                        if(document.getElementById("aa_syrup").checked) addPrice += 300
+                        else if(!document.getElementById("aa_syrup").checked) addPrice -= 300
+                    }
+    
+                    document.getElementById("aaprice").value = baseCash + addPrice
+    
                 }
-
-                document.getElementById("aaprice").value = baseCash + addPrice
-                previousSize = aa_sz
-            }
-
-            function aa_update(aa_chk) {
-                chk = aa_chk
-                baseCash = Number(document.getElementById("aaprice").value)
-                addPrice = 0
-
-                if(chk == 'aa_shot') {
-                    if(document.getElementById("aa_shot").checked) addPrice += 500
-                    else if(!document.getElementById("aa_shot").checked) addPrice -= 500
+    
+                function aaswimg(aa_type) {
+                    var type = aa_type
+                    money = Number(document.getElementById("aaprice").value)
+    
+                    if(type == "ice") {
+                        document.getElementById("aaimg").src="aaice.png"
+                        document.getElementById("aamenu").value="아메리카노(ICE)"
+                        document.getElementById("aaprice").value= money += 500
+                        document.getElementById("aaex").src="aaice_ex.png"
+                    }
+                    else if(type == "hot") {
+                        document.getElementById("aaimg").src="aahot.png"
+                        document.getElementById("aamenu").value="아메리카노(HOT)"
+                        document.getElementById("aaprice").value= money -= 500
+                        document.getElementById("aaex").src="aahot_ex.png"
+                    }
+    
                 }
-                else if(chk == 'aa_decaf') {
-                    if(document.getElementById("aa_decaf").checked) addPrice += 1000
-                    else if(!document.getElementById("aa_decaf").checked) addPrice -= 1000
+            </script>
+        </table>
+        <table class="menu2">
+            <tr>
+                <td colspan="4" class="title"><h1>MENU</h1></td>
+            </tr>
+            <tr align="center">
+                <td class="vanillaimg"><img src="vanilla_img.png" class="menuimg" id="vanillaimg"></td>
+                <td align="left" class="option">
+                    <input type="checkbox" id="vanilla_shot" onclick="vanilla_update('vanilla_shot')">샷추가<br>
+                    <input type="checkbox" id="vanilla_decaf" onclick="vanilla_update('vanilla_decaf')">디카페인<br>
+                    <input type="checkbox" id="vanilla_tumble" onclick="vanilla_update('vanilla_tumble')">텀블러<br>
+                    <input type="checkbox" id="vanilla_syrup" onclick="vanilla_update('vanilla_syrup')">시럽<br>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="menuName">바닐라크림콜드브루(ICE)</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="menuPrice"><input type="text" value="5800" id="vanillaprice">won</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="ex"><img src="vanilla_ex.png" class="menuex" id="vanillaex" value="ice"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="radio" name="vanilla_type" checked="checked" value="ice" onclick="vanillaswimg('ice')">ICE ONLY</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="radio" name="vanilla_size" checked="checked" value="Tall" onclick="vanilla_size('vanilla_tall')">Tall
+                    <input type="radio" name="vanilla_size" value="Grande" onclick="vanilla_size('vanilla_grande')">Grande
+                    <input type="radio" name="vanilla_size" value="Venti" onclick="vanilla_size('vanilla_venti')">Venti
+                </td> 
+            </tr>       
+    
+            <script>
+                let previousSize2 = null
+                function vanilla_size(vanilla_sz) {
+                    sz2 = vanilla_sz
+                    baseCash2 = Number(document.getElementById("vanillaprice").value)
+                    addPrice2 = 0;
+    
+                    if (previousSize2 === 'vanilla_grande') {
+                        baseCash2 -= 500;
+                    } else if (previousSize2 === 'vanilla_venti') {
+                        baseCash2 -= 1000;
+                    }
+                    if (vanilla_sz === 'vanilla_grande') {
+                        addPrice2 = 500;
+                    } else if (vanilla_sz === 'vanilla_venti') {
+                        addPrice2 = 1000;
+                    }
+    
+                    document.getElementById("vanillaprice").value = baseCash2 + addPrice2
+                    previousSize2 = vanilla_sz
                 }
-                else if(chk == 'aa_tumble') {
-                    if(document.getElementById("aa_tumble").checked) addPrice -= 300
-                    else if(!document.getElementById("aa_tumble").checked) addPrice += 300
+    
+                function vanilla_update(vanilla_chk) {
+                    chk2 = vanilla_chk
+                    baseCash2 = Number(document.getElementById("vanillaprice").value)
+                    addPrice2 = 0
+    
+                    if(chk2 == 'vanilla_shot') {
+                        if(document.getElementById("vanilla_shot").checked) addPrice2 += 500
+                        else if(!document.getElementById("vanilla_shot").checked) addPrice2 -= 500
+                    }
+                    else if(chk2 == 'vanilla_decaf') {
+                        if(document.getElementById("vanilla_decaf").checked) addPrice2 += 1000
+                        else if(!document.getElementById("vanilla_decaf").checked) addPrice2 -= 1000
+                    }
+                    else if(chk2 == 'vanilla_tumble') {
+                        if(document.getElementById("vanilla_tumble").checked) addPrice2 -= 300
+                        else if(!document.getElementById("vanilla_tumble").checked) addPrice2 += 300
+                    }
+                    else if(chk2 == 'vanilla_syrup') {
+                        if(document.getElementById("vanilla_syrup").checked) addPrice2 += 300
+                        else if(!document.getElementById("vanilla_syrup").checked) addPrice2 -= 300
+                    }
+    
+                    document.getElementById("vanillaprice").value = baseCash2 + addPrice2
+    
                 }
-                else if(chk == 'aa_syrup') {
-                    if(document.getElementById("aa_syrup").checked) addPrice += 300
-                    else if(!document.getElementById("aa_syrup").checked) addPrice -= 300
+            </script>
+        </table>
+
+        <table class="menu3">
+            <tr>
+                <td colspan="4" class="title"><h1>MENU</h1></td>
+            </tr>
+            <tr align="center">
+                <td class="strawberryimg"><img src="strawberry_img.png" class="menuimg" id="strawberryimg"></td>
+                <td align="left" class="option">
+                    <input type="checkbox" id="strawberry_shot" onclick="strawberry_update('strawberry_shot')">샷추가<br>
+                    <input type="checkbox" id="strawberry_decaf" onclick="strawberry_update('strawberry_decaf')">디카페인<br>
+                    <input type="checkbox" id="strawberry_tumble" onclick="strawberry_update('strawberry_tumble')">텀블러<br>
+                    <input type="checkbox" id="strawberry_syrup" onclick="strawberry_update('strawberry_syrup')">시럽<br>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="menuName">스타벅스 딸기라떼</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="menuPrice"><input type="text" value="6500" id="strawberryprice">won</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="ex"><img src="strawberry_ex.png" class="menuex" id="strawberryex" value="ice"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="radio" name="strawberry_type" checked="checked" value="ice" onclick="strawberryswimg('ice')">ICE ONLY</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="radio" name="strawberry_size" checked="checked" value="Tall" onclick="strawberry_size('strawberry_tall')">Tall
+                    <input type="radio" name="strawberry_size" value="Grande" onclick="strawberry_size('strawberry_grande')">Grande
+                    <input type="radio" name="strawberry_size" value="Venti" onclick="strawberry_size('strawberry_venti')">Venti
+                </td> 
+            </tr>       
+    
+            <script>
+                let previousSize3 = null
+                function strawberry_size(strawberry_sz) {
+                    sz3 = strawberry_sz
+                    baseCash3 = Number(document.getElementById("strawberryprice").value)
+                    addPrice3 = 0;
+    
+                    if (previousSize3 === 'strawberry_grande') {
+                        baseCash3 -= 500;
+                    } else if (previousSize3 === 'strawberry_venti') {
+                        baseCash3 -= 1000;
+                    }
+                    if (strawberry_sz === 'strawberry_grande') {
+                        addPrice3 = 500;
+                    } else if (strawberry_sz === 'strawberry_venti') {
+                        addPrice3 = 1000;
+                    }
+    
+                    document.getElementById("strawberryprice").value = baseCash3 + addPrice3
+                    previousSize3 = strawberry_sz
                 }
-
-                document.getElementById("aaprice").value = baseCash + addPrice
-
-            }
-
-            function aaswimg(aa_type) {
-                var type = aa_type
-                money = Number(document.getElementById("aaprice").value)
-
-                if(type == "ice") {
-                    document.getElementById("aaimg").src="aaice.png"
-                    document.getElementById("aamenu").value="아메리카노(ICE)"
-                    document.getElementById("aaprice").value= money += 500
-                    document.getElementById("aaex").src="aaice_ex.png"
+    
+                function strawberry_update(strawberry_chk) {
+                    chk3 = strawberry_chk
+                    baseCash3 = Number(document.getElementById("strawberryprice").value)
+                    addPrice3 = 0
+    
+                    if(chk3 == 'strawberry_shot') {
+                        if(document.getElementById("strawberry_shot").checked) addPrice3 += 500
+                        else if(!document.getElementById("strawberry_shot").checked) addPrice3 -= 500
+                    }
+                    else if(chk3 == 'strawberry_decaf') {
+                        if(document.getElementById("strawberry_decaf").checked) addPrice3 += 1000
+                        else if(!document.getElementById("strawberry_decaf").checked) addPrice3 -= 1000
+                    }
+                    else if(chk3 == 'strawberry_tumble') {
+                        if(document.getElementById("strawberry_tumble").checked) addPrice3 -= 300
+                        else if(!document.getElementById("strawberry_tumble").checked) addPrice3 += 300
+                    }
+                    else if(chk3 == 'strawberry_syrup') {
+                        if(document.getElementById("strawberry_syrup").checked) addPrice3 += 300
+                        else if(!document.getElementById("strawberry_syrup").checked) addPrice3 -= 300
+                    }
+    
+                    document.getElementById("strawberryprice").value = baseCash3 + addPrice3
+    
                 }
-                else if(type == "hot") {
-                    document.getElementById("aaimg").src="aahot.png"
-                    document.getElementById("aamenu").value="아메리카노(HOT)"
-                    document.getElementById("aaprice").value= money -= 500
-                    document.getElementById("aaex").src="aahot_ex.png"
-                }
+            </script>
+        </table>
 
-            }
-        </script>
-    </table>
+    </div>
+    
     
 </body>
 </html>

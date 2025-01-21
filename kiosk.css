@@ -1,24 +1,58 @@
 body {
+    margin: 0px 30px 0px 30px;
 
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header h1 {
+    font-size: 35px;
+}
+
+.header img {
+    width: 100px;
+    height: 100px;
+}
+
+.menucontainer {
+    display: flex;
+    margin-top: 15px;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 1.6);
 }
 
 table {
-    border: 2px solid black;
-    width: 700;
+    border: none;
+    width: 700px;
+}
+
+tr .title {
+    width: 467px;
+    height: 70px;
+}
+
+tr .ex {
+    width: 483px;
+    height: 124px;
 }
 
 td {
-    border: groove;
+    border: outset;
     padding: 10px;
 }
+
 
 .menuimg {
     width: 180px;
     height: 200px;
 }
 
-h1 {
-    margin-left: 30px;
+.menuName {
+    font-size: 25px;
+    font-weight: bold;
 }
 
 .menuPrice input {
@@ -38,3 +72,23 @@ h1 {
     margin-bottom: 10px;
 
 }
+
+.menu1 .aaimg {
+    width: 300px;
+    height: 225px;
+    padding: 0px;
+
+}
+
+.menu2 .vanillaimg {
+    width: 300px;
+    height: 225px;
+    padding: 0px;
+}
+
+.menu3 .strawberryimg {
+    width: 300px;
+    height: 225px;
+    padding: 0px;
+}
+
