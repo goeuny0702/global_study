@@ -19,6 +19,7 @@ body {
 
 .menucontainer {
     display: flex;
+    flex-wrap: wrap;
     margin-top: 15px;
     justify-content: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 1.6);
@@ -26,7 +27,7 @@ body {
 
 table {
     border: none;
-    width: 700px;
+    width: 485px;
 }
 
 tr .title {
@@ -77,6 +78,7 @@ td {
     width: 300px;
     height: 225px;
     padding: 0px;
+    background-color: #CBE8E3;
 
 }
 
@@ -84,11 +86,13 @@ td {
     width: 300px;
     height: 225px;
     padding: 0px;
+    background-color: #223B35;
 }
 
 .menu3 .strawberryimg {
     width: 300px;
     height: 225px;
     padding: 0px;
+    background-color: #386143;
 }
 

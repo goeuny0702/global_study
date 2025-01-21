@@ -32,7 +32,7 @@
                 <td colspan="2" class="menuPrice"><input type="text" value="5300" id="aaprice">won</td>
             </tr>
             <tr>
-                <td colspan="2" class="ex"><img src="aaice_ex.png" class="menuex" id="aaex" value="ice"></td>
+                <td colspan="2" class="ex" style="background-color: #F9F9F9;"><img src="aaice_ex.png" class="menuex" id="aaex" value="ice"></td>
             </tr>
             <tr>
                 <td colspan="2"><input type="radio" name="aa_type" checked="checked" value="ice" onclick="aaswimg('ice')">ICE
@@ -114,6 +114,7 @@
                 }
             </script>
         </table>
+
         <table class="menu2">
             <tr>
                 <td colspan="4" class="title"><h1>MENU</h1></td>
@@ -134,7 +135,7 @@
                 <td colspan="2" class="menuPrice"><input type="text" value="5800" id="vanillaprice">won</td>
             </tr>
             <tr>
-                <td colspan="2" class="ex"><img src="vanilla_ex.png" class="menuex" id="vanillaex" value="ice"></td>
+                <td colspan="2" class="ex" style="background-color: #F9F9F9;"><img src="vanilla_ex.png" class="menuex" id="vanillaex" value="ice"></td>
             </tr>
             <tr>
                 <td colspan="2"><input type="radio" name="vanilla_type" checked="checked" value="ice" onclick="vanillaswimg('ice')">ICE ONLY</td>
@@ -217,7 +218,7 @@
                 <td colspan="2" class="menuPrice"><input type="text" value="6500" id="strawberryprice">won</td>
             </tr>
             <tr>
-                <td colspan="2" class="ex"><img src="strawberry_ex.png" class="menuex" id="strawberryex" value="ice"></td>
+                <td colspan="2" class="ex" style="background-color: #F9F9F9;"><img src="strawberry_ex.png" class="menuex" id="strawberryex" value="ice"></td>
             </tr>
             <tr>
                 <td colspan="2"><input type="radio" name="strawberry_type" checked="checked" value="ice" onclick="strawberryswimg('ice')">ICE ONLY</td>
@@ -275,6 +276,275 @@
                     }
     
                     document.getElementById("strawberryprice").value = baseCash3 + addPrice3
+    
+                }
+            </script>
+        </table>
+
+        <table class="menu4">
+            <tr>
+                <td colspan="4" class="title"><h1>MENU</h1></td>
+            </tr>
+            <tr align="center">
+                <td class="mochaimg" style="background-color:#2B3E38;"><img src="mochaice.png" class="menuimg" id="mochaimg"></td>
+                <td align="left" class="option">
+                    <input type="checkbox" id="mocha_shot" onclick="mocha_update('mocha_shot')">샷추가<br>
+                    <input type="checkbox" id="mocha_decaf" onclick="mocha_update('mocha_decaf')">디카페인<br>
+                    <input type="checkbox" id="mocha_tumble" onclick="mocha_update('mocha_tumble')">텀블러<br>
+                    <input type="checkbox" id="mocha_syrup" onclick="mocha_update('mocha_syrup')">시럽<br>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="menuName"><input type="text" value="카페모카(ICE)" id="mochamenu"></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="menuPrice"><input type="text" value="5500" id="mochaprice">won</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="ex" style="background-color: #F9F9F9;"><img src="mochaice_ex.png" class="menuex" id="mochaex" value="ice"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="radio" name="mocha_type" checked="checked" value="ice" onclick="mochaswimg('ice')">ICE
+                    <input type="radio" name="mocha_type" value="hot" onclick="mochaswimg('hot')">HOT</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="radio" name="mocha_size" checked="checked" value="Tall" onclick="mocha_size('mocha_tall')">Tall
+                    <input type="radio" name="mocha_size" value="Grande" onclick="mocha_size('mocha_grande')">Grande
+                    <input type="radio" name="mocha_size" value="Venti" onclick="mocha_size('mocha_venti')">Venti
+                </td> 
+            </tr>       
+    
+            <script>
+                let previousSize4 = null
+                function mocha_size(mocha_sz) {
+                    sz = mocha_sz
+                    baseCash = Number(document.getElementById("mochaprice").value)
+                    addPrice = 0;
+    
+                    if (previousSize4 === 'mocha_grande') {
+                        baseCash -= 500;
+                    } else if (previousSize4 === 'mocha_venti') {
+                        baseCash -= 1000;
+                    }
+                    if (mocha_sz === 'mocha_grande') {
+                        addPrice = 500;
+                    } else if (mocha_sz === 'mocha_venti') {
+                        addPrice = 1000;
+                    }
+    
+                    document.getElementById("mochaprice").value = baseCash + addPrice
+                    previousSize4 = mocha_sz
+                }
+    
+                function mocha_update(mocha_chk) {
+                    chk = mocha_chk
+                    baseCash = Number(document.getElementById("mochaprice").value)
+                    addPrice = 0
+    
+                    if(chk == 'mocha_shot') {
+                        if(document.getElementById("mocha_shot").checked) addPrice += 500
+                        else if(!document.getElementById("mocha_shot").checked) addPrice -= 500
+                    }
+                    else if(chk == 'mocha_decaf') {
+                        if(document.getElementById("mocha_decaf").checked) addPrice += 1000
+                        else if(!document.getElementById("mocha_decaf").checked) addPrice -= 1000
+                    }
+                    else if(chk == 'mocha_tumble') {
+                        if(document.getElementById("mocha_tumble").checked) addPrice -= 300
+                        else if(!document.getElementById("mocha_tumble").checked) addPrice += 300
+                    }
+                    else if(chk == 'mocha_syrup') {
+                        if(document.getElementById("mocha_syrup").checked) addPrice += 300
+                        else if(!document.getElementById("mocha_syrup").checked) addPrice -= 300
+                    }
+    
+                    document.getElementById("mochaprice").value = baseCash + addPrice
+    
+                }
+    
+                function mochaswimg(mocha_type) {
+                    var type = mocha_type
+                    money = Number(document.getElementById("mochaprice").value)
+    
+                    if(type == "ice") {
+                        document.getElementById("mochaimg").src="mochaice.png"
+                        document.getElementById("mochamenu").value="카페모카(ICE)"
+                        document.getElementById("mochaprice").value= money += 500
+                        document.getElementById("mochaex").src="mochaice_ex.png"
+                    }
+                    else if(type == "hot") {
+                        document.getElementById("mochaimg").src="mochahot.png"
+                        document.getElementById("mochamenu").value="카페모카(HOT)"
+                        document.getElementById("mochaprice").value= money -= 500
+                        document.getElementById("mochaex").src="mochahot_ex.png"
+                    }
+    
+                }
+            </script>
+        </table>
+
+        <table class="menu5">
+            <tr>
+                <td colspan="4" class="title"><h1>MENU</h1></td>
+            </tr>
+            <tr align="center">
+                <td class="javachipimg" style="background-color:#2B3E38;"><img src="javachip.png" class="menuimg" id="javachipimg"></td>
+                <td align="left" class="option">
+                    <input type="checkbox" id="javachip_shot" onclick="javachip_update('javachip_shot')">샷추가<br>
+                    <input type="checkbox" id="javachip_decaf" onclick="javachip_update('javachip_decaf')">디카페인<br>
+                    <input type="checkbox" id="javachip_tumble" onclick="javachip_update('javachip_tumble')">텀블러<br>
+                    <input type="checkbox" id="javachip_syrup" onclick="javachip_update('javachip_syrup')">시럽<br>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="menuName">자바 칩 프라푸치노</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="menuPrice"><input type="text" value="6500" id="javachipprice">won</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="ex" style="background-color: #F9F9F9;"><img src="javachip_ex.png" class="menuex" id="javachipex" value="ice"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="radio" name="javachip_type" checked="checked" value="ice" onclick="javachipswimg('ice')">ICE ONLY</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="radio" name="javachip_size" checked="checked" value="Tall" onclick="javachip_size('javachip_tall')">Tall
+                    <input type="radio" name="javachip_size" value="Grande" onclick="javachip_size('javachip_grande')">Grande
+                    <input type="radio" name="javachip_size" value="Venti" onclick="javachip_size('javachip_venti')">Venti
+                </td> 
+            </tr>       
+    
+            <script>
+                let previousSize5 = null
+                function javachip_size(javachip_sz) {
+                    sz3 = javachip_sz
+                    baseCash = Number(document.getElementById("javachipprice").value)
+                    addPrice = 0;
+    
+                    if (previousSize5 === 'javachip_grande') {
+                        baseCash -= 500;
+                    } else if (previousSize5 === 'javachip_venti') {
+                        baseCash -= 1000;
+                    }
+                    if (javachip_sz === 'javachip_grande') {
+                        addPrice = 500;
+                    } else if (javachip_sz === 'javachip_venti') {
+                        addPrice = 1000;
+                    }
+    
+                    document.getElementById("javachipprice").value = baseCash + addPrice
+                    previousSize5 = javachip_sz
+                }
+    
+                function javachip_update(javachip_chk) {
+                    chk = javachip_chk
+                    baseCash = Number(document.getElementById("javachipprice").value)
+                    addPrice = 0
+    
+                    if(chk == 'javachip_shot') {
+                        if(document.getElementById("javachip_shot").checked) addPrice += 500
+                        else if(!document.getElementById("javachip_shot").checked) addPrice -= 500
+                    }
+                    else if(chk == 'javachip_decaf') {
+                        if(document.getElementById("javachip_decaf").checked) addPrice += 1000
+                        else if(!document.getElementById("javachip_decaf").checked) addPrice -= 1000
+                    }
+                    else if(chk == 'javachip_tumble') {
+                        if(document.getElementById("javachip_tumble").checked) addPrice -= 300
+                        else if(!document.getElementById("javachip_tumble").checked) addPrice += 300
+                    }
+                    else if(chk == 'javachip_syrup') {
+                        if(document.getElementById("javachip_syrup").checked) addPrice += 300
+                        else if(!document.getElementById("javachip_syrup").checked) addPrice -= 300
+                    }
+    
+                    document.getElementById("javachipprice").value = baseCash + addPrice
+    
+                }
+            </script>
+        </table>
+
+        <table class="menu6">
+            <tr>
+                <td colspan="4" class="title"><h1>MENU</h1></td>
+            </tr>
+            <tr align="center">
+                <td class="malchaimg" style="background-color:#2B3E38;"><img src="malcha.png" class="menuimg" id="malchaimg"></td>
+                <td align="left" class="option">
+                    <input type="checkbox" id="malcha_shot" onclick="malcha_update('malcha_shot')">샷추가<br>
+                    <input type="checkbox" id="malcha_decaf" onclick="malcha_update('malcha_decaf')">디카페인<br>
+                    <input type="checkbox" id="malcha_tumble" onclick="malcha_update('malcha_tumble')">텀블러<br>
+                    <input type="checkbox" id="malcha_syrup" onclick="malcha_update('malcha_syrup')">시럽<br>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="menuName">제주 말차 크림 프라푸치노</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="menuPrice"><input type="text" value="6500" id="malchaprice">won</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="ex" style="background-color: #F9F9F9;"><img src="malcha_ex.png" class="menuex" id="malchaex" value="ice"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="radio" name="malcha_type" checked="checked" value="ice" onclick="malchaswimg('ice')">ICE ONLY</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="radio" name="malcha_size" checked="checked" value="Tall" onclick="malcha_size('malcha_tall')">Tall
+                    <input type="radio" name="malcha_size" value="Grande" onclick="malcha_size('malcha_grande')">Grande
+                    <input type="radio" name="malcha_size" value="Venti" onclick="malcha_size('malcha_venti')">Venti
+                </td> 
+            </tr>       
+    
+            <script>
+                let previousSize6 = null
+                function malcha_size(malcha_sz) {
+                    sz3 = malcha_sz
+                    baseCash = Number(document.getElementById("malchaprice").value)
+                    addPrice = 0;
+    
+                    if (previousSize6 === 'malcha_grande') {
+                        baseCash -= 500;
+                    } else if (previousSize6 === 'malcha_venti') {
+                        baseCash -= 1000;
+                    }
+                    if (malcha_sz === 'malcha_grande') {
+                        addPrice = 500;
+                    } else if (malcha_sz === 'malcha_venti') {
+                        addPrice = 1000;
+                    }
+    
+                    document.getElementById("malchaprice").value = baseCash + addPrice
+                    previousSize6 = malcha_sz
+                }
+    
+                function malcha_update(malcha_chk) {
+                    chk = malcha_chk
+                    baseCash = Number(document.getElementById("malchaprice").value)
+                    addPrice = 0
+    
+                    if(chk == 'malcha_shot') {
+                        if(document.getElementById("malcha_shot").checked) addPrice += 500
+                        else if(!document.getElementById("malcha_shot").checked) addPrice -= 500
+                    }
+                    else if(chk == 'malcha_decaf') {
+                        if(document.getElementById("malcha_decaf").checked) addPrice += 1000
+                        else if(!document.getElementById("malcha_decaf").checked) addPrice -= 1000
+                    }
+                    else if(chk == 'malcha_tumble') {
+                        if(document.getElementById("malcha_tumble").checked) addPrice -= 300
+                        else if(!document.getElementById("malcha_tumble").checked) addPrice += 300
+                    }
+                    else if(chk == 'malcha_syrup') {
+                        if(document.getElementById("malcha_syrup").checked) addPrice += 300
+                        else if(!document.getElementById("malcha_syrup").checked) addPrice -= 300
+                    }
+    
+                    document.getElementById("malchaprice").value = baseCash + addPrice
     
                 }
             </script>
