@@ -1,9 +1,13 @@
 body {
-    margin: 0px 30px 0px 30px;
+    margin: 30px;
+    height: 100vh; 
+    background-image: url('starbucks_background.jpg');
+    
 
 }
 
 .header {
+    align-items: center;
     display: flex;
     justify-content: space-between;
 }
@@ -13,8 +17,8 @@ body {
 }
 
 .header img {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
 }
 
 .menucontainer {
@@ -26,6 +30,8 @@ body {
 }
 
 table {
+    opacity: 0.8;
+    background-color: aliceblue;
     border: none;
     width: 485px;
 }
