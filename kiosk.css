@@ -1,0 +1,40 @@
+body {
+
+}
+
+table {
+    border: 2px solid black;
+    width: 700;
+}
+
+td {
+    border: groove;
+    padding: 10px;
+}
+
+.menuimg {
+    width: 180px;
+    height: 200px;
+}
+
+h1 {
+    margin-left: 30px;
+}
+
+.menuPrice input {
+    font-weight: 300;
+    border: none;
+    font-size: 20px;
+    width: 50px;
+}
+
+.menuName input {
+    border: none;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.option input {
+    margin-bottom: 10px;
+
+}
